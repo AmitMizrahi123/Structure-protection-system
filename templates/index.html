@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UploadImage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <label for="username">Enter name: </label>
+        <input required type="text" name="username" id="username">
+        <label for="img">Select image: </label>
+        <input required type="file" name="img" id="img" accept="image/png, image/jpeg">
+        <input type="submit" value="Send!">
+    </form>
+</body>
+
+</html>
