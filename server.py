@@ -4,13 +4,11 @@ import cv2
 import gridfs
 import numpy as np
 
-UPLOAD_FOLDER = 'images'
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MONGO_URI'] = '<ADD MONGO URI'
+app.config['MONGO_URI'] = .'<ADD MONGO URI>'
 mongo = PyMongo(app)
-db_collection = mongo.db.ImageCollection
+db_collection = mongo.db.'<INSERT DB COLLECTION>'
 fs = gridfs.GridFS(mongo.db)
 
 
@@ -26,6 +24,8 @@ def create():
     if request.method == 'POST':
         image = request.files['img']
         username = request.form.get('username')
+        if db_collection.find_one({'username': username}):
+            return 'Image was upload'
         image_string = image.read()
         img = cv2.imdecode(np.fromstring(image_string, np.uint8), cv2.IMREAD_COLOR)
         image_id = fs.put(img.tostring(), encoding='utf-8')
