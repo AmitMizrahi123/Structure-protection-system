@@ -9,8 +9,8 @@ def send_message(phone_list):
     for phone in phone_list:
 
         message = client.messages.create(
-            body='יש מישהו לא מוכר בחווה',
-            from_='+12053748923',
+            body='<BODY MESSAGE>',
+            from_='<TWILIO NUMBER>',
             to=phone
         )
 
