@@ -7,12 +7,55 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>UploadImage</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Heebo", sans-serif;
+    }
+
+    body {
+      background-image: url("/static/img/cyber-3400789.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    form {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+    }
+
+    label {
+      margin: 10px;
+      color: white;
+    }
+
+    input {
+      margin: 10px;
+    }
+
+    input[type="submit"] {
+      color: black;
+      width: 7%;
+    }
+
+    input#img {
+        color: white;
+    }
+    </style>
 </head>
 
 <body>
     <form method="POST" enctype="multipart/form-data" action="/upload">
-        <label for="username">Enter name: </label>
+        <label for="username">Enter your name: </label>
         <input required type="text" name="username" id="username">
+        <label for="phone_number">Enter your phone number:</label>
+        <input type="tel" id="phone_number" name="phone_number" pattern="[0-9]{10}" required>
         <label for="img">Select image: </label>
         <input required type="file" name="img" id="img" accept="image/png, image/jpeg">
         <input type="submit" value="Send!">
