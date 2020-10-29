@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 app.config['MONGO_URI'] = '<AAD MONGO URI>'
 mongo = PyMongo(app)
-db_collection = mongo.db.ImageCollection
+db_collection = mongo.db.<ADD DB COLLECTION>
 fs = gridfs.GridFS(mongo.db)
 
 
