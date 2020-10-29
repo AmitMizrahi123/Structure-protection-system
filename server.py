@@ -6,9 +6,9 @@ import numpy as np
 
 
 app = Flask(__name__)
-app.config['MONGO_URI'] = .'<ADD MONGO URI>'
+app.config['MONGO_URI'] = '<AAD MONGO URI>'
 mongo = PyMongo(app)
-db_collection = mongo.db.'<INSERT DB COLLECTION>'
+db_collection = mongo.db.ImageCollection
 fs = gridfs.GridFS(mongo.db)
 
 
@@ -24,6 +24,7 @@ def create():
     if request.method == 'POST':
         image = request.files['img']
         username = request.form.get('username')
+        phone_number = request.form.get('phone_number')
         if db_collection.find_one({'username': username}):
             return 'Image was upload'
         image_string = image.read()
@@ -33,6 +34,7 @@ def create():
         meta = {
             'username': username,
             'profile_image_name': image.filename,
+            'phone_number': phone_number,
             'images': [
                 {
                     'imageID': image_id,
