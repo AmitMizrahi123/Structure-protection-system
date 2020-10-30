@@ -13,7 +13,7 @@ encoding_list = []
 
 for images in db_collection.find():
     name = images['username']
-    phone_number = images['phone_number'].replace('0', '+972', 1)
+    phone_number = images['phone_number'].replace('0', '+972', 1)  # Replace the number to israel number
     image = images['images'][0]
     g_out = fs.get(image['imageID'])
     img = np.frombuffer(g_out.read(), dtype=np.uint8)
