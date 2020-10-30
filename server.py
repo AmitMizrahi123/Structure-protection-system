@@ -3,12 +3,16 @@ from flask_pymongo import PyMongo
 import cv2
 import gridfs
 import numpy as np
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 
 app = Flask(__name__)
-app.config['MONGO_URI'] = '<AAD MONGO URI>'
+app.config['MONGO_URI'] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
-db_collection = mongo.db.<ADD DB COLLECTION>
+db_collection = mongo.db.ImageCollection
 fs = gridfs.GridFS(mongo.db)
 
 
@@ -48,7 +52,7 @@ def create():
         return f'''
             <h1>Done!</h1>
             <a href="/">Add another image</a>
-            <a href="http://127.0.0.1:5000/profile/{username}">Watch you image upload</a>
+            <a href="/profile/{username}">Watch you image upload</a>
         '''
     else:
         return 'Unsuccessful upload image'
