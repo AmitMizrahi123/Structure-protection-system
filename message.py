@@ -1,21 +1,18 @@
 from twilio.rest import Client
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 
 def send_message(phone_list):
-    account_sid = os.getenv('ACCOUNT_SID')
-    auth_token = os.getenv('AUTH_TOKEN')
+    account_sid = '<TWILIO_ACCOUNT_SID>'
+    auth_token = '<TWILIO_AUTH_TOKEN>'
     client = Client(account_sid, auth_token)
 
     for phone in phone_list:
-
         message = client.messages.create(
-            body=os.getenv('BODY_MSG_TWILIO'),
-            from_=os.getenv('FROM_TWILIO'),
+            body='There is unknown person in the building',
+            from_='<TWILIO_FROM>',
             to=phone
         )
 
-        print(message.status)
+        print(message.sid)
+
+        return False
