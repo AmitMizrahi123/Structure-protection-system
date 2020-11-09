@@ -6,9 +6,12 @@ When running the system on a structure, the system will identify people and cate
 The project is built in the Python language which includes the libraries:
 CV2, Face recognition, Flask, Mongodb, Numpy, Gridfs.
 
-### recogntion faces
+### Face recognition
 https://github.com/AmitMizrahi123/cv2-python-project/issues/2#issue-739274269
 https://github.com/AmitMizrahi123/cv2-python-project/issues/3#issue-739274650
 
-### message to user
+### Server
+https://github.com/AmitMizrahi123/Structure-protection-system/issues/5#issue-739277866
+
+### Message sent to the user
 https://github.com/AmitMizrahi123/cv2-python-project/issues/1#issue-739272765
